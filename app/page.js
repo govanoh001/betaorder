@@ -1,8 +1,8 @@
-
+/* import { FaTwitter } from "react-icons/fa";
 export default function HomePage() {
   return (
-    <main> 
-      <div className="flex gap-25 w-full h-[100px] bg-white items-center sticky top-0">
+   <main> 
+      { <div className="flex gap-25 w-full h-[100px] bg-white items-center top-0">
       <hi className="italic font-extrabold text-6xl text-red-700 px-2">KFC</hi>
       <div className="tracking-tighter uppercase font-bold flex gap-20 text-2xl hover:text-red-700 ">
         <p className="hover:border-b-2 border-red-700">Company</p>
@@ -64,7 +64,7 @@ export default function HomePage() {
           Chilli Lime sauce, topped with cheese, fresh Rainbow slaw <br/>
           and Colonel Dressing, served on a Brioche bun.</p>
        </div>
-       <div className="flex ">
+       <div  className="flex ">
         <img
         src="/kfcc.jpg"
         alt="kfcimage"
@@ -97,16 +97,21 @@ export default function HomePage() {
         <p className="text-white font-semibold ">Copyright © 2025 Yum! Ltd. All rights reserved.</p>
         <p className="text-white font-semibold border-b-1 border-white">Private Policies</p> 
         <p className="text-white font-semibold border-b-1 border-white ">Term of Use</p> 
-        <p className="text-white font-semibold border-b-1 border-white ">SiteMap</p>  
+        <p className="text-white font-semibold border-b-1 border-white ">SiteMap</p>
+        <FaTwitter className="text-5xl font-bold text-red-700"/>  
         </div>
        </div>
+       <div> 
+      </div>
+
     </main>
    
   )
     }
+}
 
 
 
 
-
+ */
 
