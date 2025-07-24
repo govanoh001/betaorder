@@ -2,9 +2,9 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
   export default function SignIn (){
   return (
-    <main className="min-h-screen flex justify-center bg-blue-100 py-8 px-2">
+    <main className="min-h-screen flex justify-center bg-gray-100 py-8 px-2">
       <article>
-        <div className="w-full md:w-[30em] rounded-md bg-white p-4 ">
+        <div className="w-full md:w-[30em] rounded-md bg-white p-4 shadow shadow-gray-500 ">
           <h1 className="text-2xl mb-2">Sign into BetaOrder</h1>
           <p  className="">Sign in using...</p>
           <form className="mb-2">

@@ -9,15 +9,15 @@ export default function Navbar(){
         setMenuOpen(!MenuOpen)
     }
     return(
-        <main className="bg-white shadow shadow-gray-300 w-full">
+        <main className="bg-white shadow shadow-gray-500 w-full">
             <div className="flex justify-between h-[50px] pt-3 px-5">
                 <p className="text-blue-500 font-bold text-2xl">BetaOrder</p>
                 <ul className="hidden md:flex gap-10 font-semibold cursor-pointer">
                     <li><Link href="#">Add-order</Link></li>
-                    <li><Link href="#">Order-list</Link></li>
+                    <li><Link href="#">Orders</Link></li>
                     <li><Link href="#">Profile</Link></li>
                 </ul>
-                <Link href="#"><p className="hidden md:block h-[30px] w-[80px] bg-blue-400 text-white text-center rounded-lg">Sign Up</p>
+                <Link href="#"><p className="hidden md:block h-[30px] w-[80px] bg-blue-500 font-semibold text-white text-center rounded-lg">Sign Up</p>
                 </Link>
                 <div className="block py-2 md:hidden">
                     <FaGripLines className="text--2xl text-blue-500"
