@@ -9,7 +9,7 @@ export default function Navbar(){
         setMenuOpen(!MenuOpen)
     }
     return(
-        <main className="bg-white shadow shadow-gray-500 w-full">
+        <main className="bg-white shadow shadow-gray-500 w-full sticky">
             <div className="flex justify-between h-[50px] pt-3 px-5">
                 <p className="text-blue-500 font-bold text-2xl">BetaOrder</p>
                 <ul className="hidden md:flex gap-10 font-semibold cursor-pointer">

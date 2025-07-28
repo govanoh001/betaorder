@@ -3,7 +3,7 @@ import {Button, Card, CardContent, CardHeader, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 
-const schema = yup.onject().shape({
+const schema = yup.object().shape({
     customername: yup.string().required("customer name is required").min(5),
     order: yup.string().required("order is required").min(5),
     amount: yup.number().required("Enter amount").min(1000),
