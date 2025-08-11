@@ -1,7 +1,14 @@
 "use client"
-import {Button, Card, CardContent, CardHeader, TextField } from '@mui/material';
+import { db } from '@/config/firebase.config';
+import {Button, Card, CardContent, CardHeader, CircularProgress, TextField } from '@mui/material';
+import { addDoc, collection } from 'firebase/firestore';
 import { useFormik } from 'formik';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
 import * as yup from "yup";
+
+
+
 
 const schema = yup.object().shape({
     customername: yup.string().required("customer name is required").min(5),
@@ -10,7 +17,10 @@ const schema = yup.object().shape({
     notes: yup.string().required("").min(10)
 })
 
-export default function AddOrder (){
+export default function AddOrder ({userID}){
+    const [opProgress, setoppRogress] = useState(false)
+    const {data: session }= useSession();
+
    const {handleSubmit, handleChange, values, touched, errors} = useFormik({
     initialValues: {
         customername:"",
@@ -18,8 +28,24 @@ export default function AddOrder (){
         amount:"",
         notes:""
     },
-    onSubmit: () => {
-        alert("form submitted")
+    onSubmit:async (values, {resetForm}) => {
+          await addDoc(collection(db, "orders"),{
+            user: session?.user?.id,
+            customername: values.customername,
+            order : values.order,
+            amount: values.amount,
+            notes: values.notes,
+            timecreated: new Date().getTime(),
+          }).then (()=>{
+            setoppRogress(false)
+            alert("your just made an order")
+            resetForm();
+
+          }).catch (e=>{
+            setoppRogress(false)
+            console.error(e)
+            alert("your order was not sucessful")
+          })
     }, 
     validationSchema:schema
    })
@@ -37,9 +63,9 @@ export default function AddOrder (){
                     type='text'
                     label="Customer's Name"
                     id='customername'
-                    placeholder='Enter your Name'/>
+                    placeholder='Enter your Name'
                     value={values.customername}
-                    onChange={handleChange}
+                    onChange={handleChange}/>
                   </div>
                   {touched.customername && errors.customername ? <span className='text-xs text-red-500'>{errors.customername}</span> :null}
                   <div>
@@ -79,7 +105,8 @@ export default function AddOrder (){
                     />
                     </div> 
                     {touched.notes && errors.notes ? <span className='text-xs text-red-500'>{errors.notes}</span> :null}
-                    <Button type='submit' variant='contained' className='rounded'>Place Order</Button>              
+                    <Button type='submit' variant='contained' className='rounded '>Place Order</Button>   
+                    <CircularProgress style={{display: !opProgress ? "none" : "flex"}}/>           
                 </form>
             </CardContent>
         </Card>
