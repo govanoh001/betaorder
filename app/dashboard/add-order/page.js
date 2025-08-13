@@ -29,6 +29,7 @@ export default function AddOrder ({userID}){
         notes:""
     },
     onSubmit:async (values, {resetForm}) => {
+         setoppRogress(true)
           await addDoc(collection(db, "orders"),{
             user: session?.user?.id,
             customername: values.customername,
@@ -105,7 +106,7 @@ export default function AddOrder ({userID}){
                     />
                     </div> 
                     {touched.notes && errors.notes ? <span className='text-xs text-red-500'>{errors.notes}</span> :null}
-                    <Button type='submit' variant='contained' className='rounded '>Place Order</Button>   
+                    <Button type='submit' variant='contained' className='rounded'>Place Order</Button>   
                     <CircularProgress style={{display: !opProgress ? "none" : "flex"}}/>           
                 </form>
             </CardContent>
