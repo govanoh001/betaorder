@@ -2,7 +2,7 @@
 export default function HomePage() {
   return (
    <main> 
-       <div className="flex gap-25 w-full h-[100px] bg-white items-center top-0 ">
+       {/* <div className="flex gap-25 w-full h-[100px] bg-white items-center top-0 ">
       <hi className="italic font-extrabold text-6xl text-red-700 px-2">KFC</hi>
       <div className="tracking-tighter uppercase font-bold flex gap-20 text-2xl hover:text-red-700 ">
         <p className="hover:border-b-2 border-red-700">Company</p>
@@ -102,7 +102,7 @@ export default function HomePage() {
         </div>
        </div>
        <div> 
-      </div>
+      </div> */}
 
     </main>
    
